@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: grey;
+      }
+      h1 {
+        text-align: center;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-size: 20px;
+      }
+      .a {
+        background-color: rgb(0, 255, 255);
+        width: 100%;
+        height: 860px;
+        margin-top: 40px;
+        /* margin-bottom: 10PX; */
+        /* padding-bottom: 30PX; */
+      }
+      #z {
+        margin-top: 20px;
+        padding: 30px;
+        color: rgb(255, 254, 254);
+        background-color: rgb(36, 11, 11);
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .r {
+        text-align: center;
+        gap: 20px;
+      }
+      #e {
+        padding: 30PX;
+        margin-bottom: 10px;
+        margin-top: 4px;
+      }
+      .y {
+        /* position: absolute; */
+        height: 30px;
+        width: 90px;
+        text-align: center;
+        margin-bottom: 3px;
+        margin-top: 10px;
+        background-color: rgb(26, 174, 100);
+      }
+      #r{
+        padding: 30px;
+        margin-bottom: 10px;
+        margin-top: 4px;
+      }
+    </style>
+    <h1>CALCULATRICE</h1>
+    <div class="a">
+      <div id="z"></div>
+      <button class="y" id="p">EFFACER</button></br>
+      <div id="k"></div>
+      <div class="r">
+        <button class="w" id="e">1</button>
+        <button class="x" id="e">2</button>
+        <button class="c" id="e">3</button>
+        <button class="u" id="r">+</button>
+        <button class="m" id="e">4</button>
+        <button class="l" id="e">5</button>
+        <button class="j" id="e">6</button>
+        <button class="i" id="r">-</button>
+        <button class="h" id="e">7</button>
+        <button class="g" id="e">8</button>
+        <button class="f" id="e">9</button>
+        <button class="q" id="r">%</button>
+        <button class="d" id="e">0</button>
+        <button class="op" id="e">π</button>
+        <button class="kl" id="e">e²</button>
+        <button class="b" id="e">=</button>
+        <button class="v" id="r">*</button>
+
+      </div>
+    </div>
+    <script>
+      let z = document.getElementById("z");
+
+      let b = document.querySelector(".b");
+      document.querySelector(".y").addEventListener("click", () => {
+        z.innerText = "";
+      });
+
+      document.querySelector(".w").addEventListener("click", () => {
+        z.innerText += "1";
+
+      });
+      document.querySelector(".x").addEventListener("click", () => {
+        z.innerText += "2";
+      });
+      document.querySelector(".c").addEventListener("click", () => {
+        z.innerText += "3";
+      });
+      document.querySelector(".m").addEventListener("click", () => {
+        z.innerText += "4";
+      });
+      document.querySelector(".l").addEventListener("click", () => {
+        z.innerText += "5";
+      });
+      document.querySelector(".j").addEventListener("click", () => {
+        z.innerText += "6";
+      });
+      document.querySelector(".h").addEventListener("click", () => {
+        z.innerText += "7";
+      });
+      document.querySelector(".g").addEventListener("click", () => {
+        z.innerText += "8";
+      });
+      document.querySelector(".f").addEventListener("click", () => {
+        z.innerText += "9";
+      });
+      document.querySelector(".d").addEventListener("click", () => {
+        z.innerText += "0";
+      });
+      // document.querySelector('.v').addEventListener('click', () => {
+      //     z.innerText = "+";
+      // });
+      document.querySelector(".u").addEventListener("click", () => {
+        // Vérifie si le dernier caractère n'est pas déjà un '+'
+        if (z.innerText.slice(-1) !== "+") {
+          z.innerText += "+";
+        }
+      });
+
+      document.querySelector(".i").addEventListener("click", () => {
+        // Vérifie si le dernier caractère n'est pas déjà un '+'
+        if (z.innerText.slice(-1) !== "-") {
+          z.innerText += "-";
+        }
+      });
+
+      // Lorsque le bouton "=" est cliqué
+      b.addEventListener("click", () => {
+        try {
+          // Évaluer l'expression dans 'z' et afficher le résultat
+          z.innerText = eval(z.innerText);
+        } catch (error) {
+          z.innerText = z.innerText;
+        }
+      });
+      document.querySelector(".q").addEventListener("click", () => {
+        // Vérifie si le dernier caractère n'est pas déjà un '+'
+        if (z.innerText.slice(-1) !== "/"){   
+          z.innerText += "/";
+        }
+      });
+      document.querySelector(".v").addEventListener("click", () => {
+        // Vérifie si le dernier caractère n'est pas déjà un '+'
+        if (z.innerText.slice(-1) !== "*") {
+          z.innerText += "*";
+        }
+      });
+
+      const π = 3.14;
+      document.querySelector(".op").addEventListener("click", () => {
+        // Vérifie si le dernier caractère n'est pas déjà un '+'
+        if (z.innerText.slice(-1) !== π) {
+          z.innerText *= π
+        }
+        // z.innerText *= π;
+      });
+    //   const e = document.getElementById("e")
+    //   e.addEventListener('click',()=>{
+    //     if(e/0){
+    //         z.innerText="infini"
+    //     }
+    //   })
+
+
+
+    // const r =document.getElementById('r')
+    // r.addEventListener('click',()=>{
+    //     if(z.innerText.slice(-1)!== r){
+    //         z.innerText=r
+    //     }
+    // })
+
+    </script>
+  </body>
+</html>
